@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/', function () {
-    return view('storage.index');
-});
+Route::get('/', 'StoreController@index');
+
+Route::post('/create', 'StoreController@store');
