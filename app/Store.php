@@ -8,6 +8,13 @@ use App;
 
 /**
  * Class Store
+ *
+ * @property integer $id
+ * @property string $mime_type
+ * @property string $url
+ * @property string $path
+ * @property integer $created_at
+ * @property integer $updated_at
  */
 
 class Store extends Model
