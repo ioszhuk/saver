@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App;
 
+/**
+ * Class StoreController
+ * @package App\Http\Controllers
+ */
+
 class StoreController extends Controller
 {
 	/**
@@ -20,10 +25,10 @@ class StoreController extends Controller
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * @param Request $request
 	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\Http\JsonResponse
+	 * @throws \Throwable
 	 */
 	public function store(Request $request)
 	{
@@ -53,7 +58,7 @@ class StoreController extends Controller
 	 *
 	 * @param $id
 	 *
-	 * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Symfony\Component\HttpFoundation\BinaryFileResponse
 	 */
 	public function download($id)
 	{
@@ -85,7 +90,7 @@ class StoreController extends Controller
 	}
 
 	/**
-	 * Render row html
+	 * Render row for list of files
 	 *
 	 * @param $store
 	 *
