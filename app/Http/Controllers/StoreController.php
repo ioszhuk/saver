@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
-use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -35,7 +34,7 @@ class StoreController extends Controller
 			]);
 
 			if ($validator->fails()) {
-				return response()->json($validator->errors()->all(), 422);
+				return response()->json(['message' => $validator->errors()->all()], 422);
 			}
 
 			if( ($response = App\Store::saveFile($request->url)) ) {
