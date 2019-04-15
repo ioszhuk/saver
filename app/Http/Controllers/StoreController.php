@@ -79,6 +79,14 @@ class StoreController extends Controller
 
 		if ( $request->ajax() ) {
 
+			$validator = \Validator::make($request->all(), [
+				'id' => 'integer',
+			]);
+
+			if ($validator->fails()) {
+				return response()->json(['message' => $validator->errors()->all()], 422);
+			}
+
 			if( ($response = App\Store::removeFile($request->id)) ) {
 				return response()->json($response, 200 );
 			} else {
